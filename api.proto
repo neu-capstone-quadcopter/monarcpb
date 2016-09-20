@@ -1,0 +1,38 @@
+syntax = "proto3";
+
+package monarcpb;
+
+message ThreeAxis {
+    int32 x = 1;
+    int32 y = 2;
+    int32 z = 3;
+}
+
+message NavCPUToSysCtrl {
+    message Telemetry {
+        ThreeAxis accelerometer = 1;
+        ThreeAxis gyroscope = 2;
+        ThreeAxis magnetometer = 3;
+
+        // From the barometer.
+        int32 atmospheric_pressure = 4;
+
+        // From the ultrasonic altimeter.
+        int32 altitude = 5;
+    }
+    Telemetry telemetry = 1;
+
+    message AnalogSensors {
+        int32 current = 1;
+        int32 voltage = 2;
+    }
+    AnalogSensors analog_sensors = 2;
+}
+
+message SysCtrlToNavCPU {
+    message Telemetry {
+        int32 GPS = 1;
+    }
+    Telemetry telemetry = 1;
+}
+
