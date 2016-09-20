@@ -27,6 +27,11 @@ message NavCPUToSysCtrl {
         int32 voltage = 2;
     }
     AnalogSensors analog_sensors = 2;
+
+    message NavigationCommand {
+
+    }
+    NavigationCommand command = 3;
 }
 
 message SysCtrlToNavCPU {
@@ -34,5 +39,15 @@ message SysCtrlToNavCPU {
         int32 GPS = 1;
     }
     Telemetry telemetry = 1;
+
+    message ComputerState {
+
+    }
+    ComputerState state = 2;
+
+    message FlightControl {
+
+    }
+    FlightControl control = 3;
 }
 
