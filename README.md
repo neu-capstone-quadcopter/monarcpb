@@ -2,5 +2,9 @@
 A collection of protocol buffers used by the Monarc project.
 
 ### Messages
-- NavCPUToSysCtrl
-- SysCtrlToNavCPU
+- `NavCPUToSysCtrl`
+- `SysCtrlToNavCPU`
+
+### Compilation
+
+Run `make`... that's all.
