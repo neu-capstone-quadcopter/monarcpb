@@ -1,5 +1,14 @@
+PROTOC = protoc
+
+NANOPB_DIR  = "nanopb"
+
 all: api.proto
-	protoc --cpp_out=. --python_out=. api.proto
+	@mkdir -p build/cpp build/nano build/python
+	$(PROTOC) --plugin=protoc-gen-nanopb=$(NANOPB_DIR)/generator/protoc-gen-nanopb \
+		--cpp_out=build/cpp \
+		--nanopb_out=build/nano \
+		--python_out=build/python \
+		api.proto
 
 clean:
-	rm -f api.pb.cc api.pb.h api_pb2.py
+	@rm -rf build
