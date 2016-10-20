@@ -1,0 +1,30 @@
+syntax = "proto3";
+option optimize_for = LITE_RUNTIME;
+
+package monarcpb;
+
+message ThreeAxis {
+    int32 x = 1;
+    int32 y = 2;
+    int32 z = 3;
+}
+
+message GPSFix {
+    enum Status {
+        NO_FIX   = 0; // unable to fix position
+        FIX      = 1; // unaugmented fix
+        SBAS_FIX = 2; // with satellite-based augmentation
+        GBAS_FIX = 3; // with ground-based augmentation
+    }
+    Status status = 1;
+
+    // Latitude [degrees]. Positive is north of equator; negative is south.
+    double latitude = 2;
+
+    // Longitude [degrees]. Positive is east of prime meridian; negative is west.
+    double longitude = 3;
+
+    // Altitude [m]. Positive is above the WGS 84 ellipsoid
+    // (quiet NaN if no altitude is available).
+    double altitude = 4;
+}

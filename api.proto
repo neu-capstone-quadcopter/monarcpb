@@ -1,13 +1,9 @@
 syntax = "proto3";
 option optimize_for = LITE_RUNTIME;
 
-package monarcpb;
+import "common.proto";
 
-message ThreeAxis {
-    int32 x = 1;
-    int32 y = 2;
-    int32 z = 3;
-}
+package monarcpb;
 
 message SysCtrlToNavCPU {
     message Telemetry {
@@ -37,7 +33,7 @@ message SysCtrlToNavCPU {
 
 message NavCPUToSysCtrl {
     message Telemetry {
-        int32 GPS = 1;
+        GPSFix GPS = 1;
     }
     Telemetry telemetry = 1;
 
