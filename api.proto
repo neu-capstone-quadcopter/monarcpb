@@ -20,22 +20,22 @@ message SysCtrlToNavCPU {
     Telemetry telemetry = 1;
 
     message AnalogSensors {
-    	int32 sys_3v3_isense = 1;
-		int32 sys_5v_isense = 2;
-		int32 vgps_isense = 3;
-		int32 vusb_isense = 4;
-		int32 vfltctl_isense = 5;
-		int32 navcmp_isense = 6;
-		int32 vradio_isense = 7;
-		int32 tp27 = 8;
-		int32 vradio_vsense = 9;
-		int32 navcmp_vsense = 10;
-		int32 vusb_vsense = 11;
-		int32 vfltctl_vsense = 12;
-		int32 vgps_vsense = 13;
-		int32 sys_5v_vsense = 14;
-		int32 vsys_vsense = 15;
-		int32 sys_3v3_vsense = 16;
+        int32 sys_3v3_isense = 1;
+        int32 sys_5v_isense = 2;
+        int32 vgps_isense = 3;
+        int32 vusb_isense = 4;
+        int32 vfltctl_isense = 5;
+        int32 navcmp_isense = 6;
+        int32 vradio_isense = 7;
+        int32 tp27 = 8;
+        int32 vradio_vsense = 9;
+        int32 navcmp_vsense = 10;
+        int32 vusb_vsense = 11;
+        int32 vfltctl_vsense = 12;
+        int32 vgps_vsense = 13;
+        int32 sys_5v_vsense = 14;
+        int32 vsys_vsense = 15;
+        int32 sys_3v3_vsense = 16;
     }
     AnalogSensors analog_sensors = 2;
 
@@ -57,10 +57,10 @@ message NavCPUToSysCtrl {
     ComputerState state = 2;
 
     message FlightControl {
-		int32 pitch = 1;
-		int32 roll = 2;
-		int32 yaw = 3;
-		int32 elevation = 4;
+        int32 pitch = 1;
+        int32 roll = 2;
+        int32 yaw = 3;
+        int32 elevation = 4;
     }
     FlightControl control = 3;
 }
