@@ -40,9 +40,18 @@ message SysCtrlToNavCPU {
     AnalogSensors analog_sensors = 2;
 
     message NavigationCommand {
-
+        int32 mission_num = 1;
+        GPSFix gps_location = 2;
     }
     NavigationCommand command = 3;
+
+    message FlightControl {
+        int32 pitch = 1;
+        int32 roll = 2;
+        int32 yaw = 3;
+        int32 elevation = 4;
+    }
+    FlightControl control = 4;
 }
 
 message NavCPUToSysCtrl {
