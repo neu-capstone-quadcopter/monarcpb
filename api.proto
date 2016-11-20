@@ -40,7 +40,18 @@ message SysCtrlToNavCPU {
     AnalogSensors analog_sensors = 2;
 
     message NavigationCommand {
-        int32 mission_num = 1;
+        // Keep this in sync with monarc_uart_driver/msg/NavCommand.msg!
+        enum MissionType {
+          TAKEOFF = 0;
+          LAND = 1;
+          FORWARD = 2;
+          UP = 3;
+          DOWN = 4;
+          TURN_RIGHT_90 = 5;
+          TURN_LEFT_90 = 6;
+          NAVIGATE_TO_GOAL = 7;
+        }
+        MissionType mission_num = 1;
         GPSFix gps_location = 2;
     }
     NavigationCommand command = 3;
