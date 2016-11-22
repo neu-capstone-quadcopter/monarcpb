@@ -16,6 +16,12 @@ message SysCtrlToNavCPU {
 
         // From the ultrasonic altimeter.
         int32 altitude = 5;
+        
+        //The thrust values associated with each motor
+        int32 motor0_thrust = 6;
+        int32 motor1_thrust = 7;
+        int32 motor2_thrust = 8;
+        int32 motor3_thrust = 9;
     }
     Telemetry telemetry = 1;
 
