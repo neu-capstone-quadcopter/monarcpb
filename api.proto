@@ -7,9 +7,17 @@ package monarcpb;
 
 message SysCtrlToNavCPU {
     message Telemetry {
-        ThreeAxis accelerometer = 1;
-        ThreeAxis gyroscope = 2;
-        ThreeAxis magnetometer = 3;
+        ThreeAxis accelerometer = 1; // milli-Gs
+        ThreeAxis gyroscope = 2;     // milli-degrees per second
+        ThreeAxis magnetometer = 3;  // micro teslas
+
+        // deci-degrees
+        message Attitude {
+            int32 pitch = 1;
+            int32 roll = 2;
+            int32 yaw = 3;
+        }
+        Attitude attitude = 10;
 
         // From the barometer.
         int32 atmospheric_pressure = 4;
