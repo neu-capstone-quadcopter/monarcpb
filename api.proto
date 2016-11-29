@@ -5,6 +5,14 @@ import "common.proto";
 
 package monarcpb;
 
+message FlightControl {
+    // All values between 0 and 2000.
+    int32 pitch = 1;
+    int32 roll = 2;
+    int32 yaw = 3;
+    int32 throttle = 4;
+}
+
 message SysCtrlToNavCPU {
     message Telemetry {
         ThreeAxis accelerometer = 1; // milli-Gs
@@ -17,19 +25,25 @@ message SysCtrlToNavCPU {
             int32 roll = 2;
             int32 yaw = 3;
         }
-        Attitude attitude = 10;
+        Attitude attitude = 4;
 
         // From the barometer.
-        int32 atmospheric_pressure = 4;
+        int32 atmospheric_pressure = 5;
 
         // From the ultrasonic altimeter.
-        int32 altitude = 5;
+        int32 altitude = 6;
         
-        //The thrust values associated with each motor
-        int32 motor0_thrust = 6;
-        int32 motor1_thrust = 7;
-        int32 motor2_thrust = 8;
-        int32 motor3_thrust = 9;
+        // The thrust values associated with each motor.
+        message MotorThrust {
+            int32 motor0 = 1;
+            int32 motor1 = 2;
+            int32 motor2 = 3;
+            int32 motor3 = 4;
+        }
+        MotorThrust motor_thrust = 7;
+
+        // The latest flight control messages sent to the flight controller.
+        FlightControl latest_control = 8;
     }
     Telemetry telemetry = 1;
 
@@ -90,11 +104,5 @@ message NavCPUToSysCtrl {
     }
     ComputerState state = 2;
 
-    message FlightControl {
-        int32 pitch = 1;
-        int32 roll = 2;
-        int32 yaw = 3;
-        int32 throttle = 4;
-    }
     FlightControl control = 3;
 }
