@@ -78,7 +78,7 @@ message NavCPUToSysCtrl {
     Telemetry telemetry = 1;
 
     message ComputerState {
-
+        bool kill = 1;
     }
     ComputerState state = 2;
 
