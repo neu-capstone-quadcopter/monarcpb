@@ -101,6 +101,7 @@ message NavCPUToSysCtrl {
 
     message ComputerState {
         bool kill = 1;
+        bool soft_kill = 2;
     }
     ComputerState state = 2;
 
